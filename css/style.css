@@ -1,0 +1,89 @@
+/** @format */
+
+.box {
+  width: 500px;
+  margin: 0 auto;
+  padding: 200px 0;
+}
+
+.burger {
+  appearance: none;
+}
+
+.burger-btn {
+  position: fixed;
+  right: 2%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background-color: bisque;
+  cursor: pointer;
+  z-index: 30;
+}
+
+.burger-icon {
+  position: relative;
+}
+
+.burger-icon,
+.burger-icon::after,
+.burger-icon::before {
+  width: 30px;
+  height: 3px;
+  background-color: #000;
+}
+
+.burger-icon::after,
+.burger-icon::before {
+  content: "";
+  position: absolute;
+  left: 0;
+}
+
+.burger-icon::after {
+  top: 10px;
+}
+
+.burger-icon::before {
+  top: -10px;
+}
+
+.burger-btn:hover .burger-icon::after {
+  top: 12px;
+}
+
+.burger-btn:hover .burger-icon::before {
+  top: -12px;
+}
+
+.burger:checked + .burger-btn .burger-icon {
+  background-color: transparent;
+}
+
+.burger:checked + .burger-btn .burger-icon::after {
+  top: 0;
+  transform: rotate(45deg);
+}
+
+.burger:checked + .burger-btn .burger-icon::before {
+  top: 0;
+  transform: rotate(-45deg);
+}
+
+.burger-bg {
+  position: fixed;
+  right: 2.8%;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: radial-gradient(#a14f03, #c395c3);
+  z-index: 20;
+  transition: all 400ms ease-in-out;
+}
+
+.burger:checked ~ .burger-bg {
+  transform: scale(80);
+}
